@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Microscope - honest optics calculator</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Microscope</h1>
+  <p class="tag">What your objective can actually resolve - and when extra zoom is empty.</p>
+  <nav><a href="index.html">About</a></nav>
+</header>
+
+<section class="card">
+  <h2>Objective presets</h2>
+  <div id="presets" class="row"></div>
+</section>
+
+<section class="card">
+  <h2>Setup</h2>
+  <div class="row">
+    <label>Objective mag <input id="obj" type="number" min="0.1" step="1" value="40"></label>
+    <label>Numerical aperture <input id="na" type="number" min="0.01" max="1.5" step="0.01" value="0.65"></label>
+    <label>Eyepiece mag
+      <select id="eye">
+        <option value="10" selected>10x</option>
+        <option value="15">15x</option>
+        <option value="16">16x</option>
+        <option value="20">20x</option>
+      </select>
+    </label>
+  </div>
+  <div class="row">
+    <label>Wavelength (nm) <input id="lam" type="number" min="380" max="750" step="10" value="550"></label>
+    <label>Eyepiece field number (mm) <input id="fn" type="number" min="1" step="0.5" value="20"></label>
+    <label>Camera adapter mag
+      <select id="cam">
+        <option value="0.5">0.5x</option>
+        <option value="0.63">0.63x</option>
+        <option value="1" selected>1x</option>
+      </select>
+    </label>
+  </div>
+  <div id="out" class="out"></div>
+</section>
+
+<footer>
+  <p>Abbe resolution and depth of field are widefield estimates in air (n=1) at the
+  wavelength you set. The useful-magnification band (500-1000x NA) is the classic
+  light-microscopy rule. Real objectives vary - check the engraved NA, not the color ring.</p>
+</footer>
+
+<script src="engine.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
